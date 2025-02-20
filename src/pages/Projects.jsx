@@ -23,16 +23,16 @@ function ProjectModal({ project, onClose }) {
 
   return (
     <div className="fixed inset-0 bg-black/80 flex items-center justify-center p-4 z-50">
-      <div className="bg-[#0a0f18] rounded-lg w-[95%] max-w-7xl max-h-[90vh] overflow-y-auto">
+      <div className="bg-[#0a0f18] rounded-lg w-[95%] max-w-7xl max-h-[90vh] overflow-y-auto overflow-x-hidden">
         <div className="p-8">
           <div className="flex justify-between items-start mb-6">
-            <div>
-              <h2 className="text-3xl font-bold text-white mb-4">{project.title}</h2>
-              <p className="text-gray text-lg max-w-3xl">{project.description}</p>
+            <div className="w-full pr-8">
+              <h2 className="text-3xl font-bold text-white mb-4 font-poppins">{project.title}</h2>
+              <p className="text-gray text-lg font-poppins font-normal">{project.description}</p>
             </div>
             <button 
               onClick={onClose}
-              className="text-gray hover:text-white transition-colors"
+              className="text-gray hover:text-blue-500 transition-colors cursor-pointer flex-shrink-0"
             >
               <i className="fas fa-times text-2xl"></i>
             </button>
@@ -49,13 +49,13 @@ function ProjectModal({ project, onClose }) {
 
             <button 
               onClick={prevImage}
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-colors"
+              className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-blue-500/50 text-white p-3 rounded-full transition-colors cursor-pointer"
             >
               <i className="fas fa-chevron-left text-xl"></i>
             </button>
             <button 
               onClick={nextImage}
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-colors"
+              className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-blue-500/50 text-white p-3 rounded-full transition-colors cursor-pointer"
             >
               <i className="fas fa-chevron-right text-xl"></i>
             </button>
@@ -78,7 +78,7 @@ function ProjectModal({ project, onClose }) {
               {project.technologies.map((tech, index) => (
                 <span 
                   key={index}
-                  className="px-4 py-2 bg-blue-500/20 text-blue-400 rounded-full text-sm"
+                  className="px-4 py-2 bg-blue-500/20 text-blue-400 rounded-full text-sm font-poppins font-light"
                 >
                   {tech}
                 </span>
@@ -115,14 +115,14 @@ function ProjectCard({ project, onClick }) {
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-          <button className="px-6 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors">
+          <button className="px-6 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors cursor-pointer">
             Zobacz więcej
           </button>
         </div>
       </div>
       <div className="p-6">
-        <h3 className="text-xl font-semibold text-white mb-2">{project.title}</h3>
-        <p className="text-gray line-clamp-2">{project.description}</p>
+        <h3 className="text-xl font-semibold text-white mb-2 font-poppins">{project.title}</h3>
+        <p className="text-gray line-clamp-2 font-poppins font-normal">{project.description}</p>
       </div>
     </div>
   );
@@ -133,7 +133,7 @@ function ProjectSection({ title, projects, onProjectClick }) {
 
   return (
     <div className="mb-16">
-      <h2 className="text-2xl font-bold text-white mb-6">{title}</h2>
+      <h2 className="text-2xl font-bold text-white mb-6 font-poppins">{title}</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects.map((project, index) => (
           <ProjectCard 
@@ -156,7 +156,7 @@ function Projects() {
       
       <div className="px-4 pt-32 pb-16 max-w-6xl mx-auto">
         <div className="mb-16">
-          <h1 className="text-5xl font-bold text-white mb-4">Projekty</h1>
+          <h1 className="text-5xl font-bold text-white mb-4 font-poppins">Projekty</h1>
           <div className="h-1 w-24 bg-blue-500 rounded"></div>
         </div>
 

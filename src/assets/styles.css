@@ -3,14 +3,17 @@
 :root {
   --color-bg-main: #04070a;
   --color-bg-container: rgba(0, 0, 0, 0.25);
+  --color-bg-secondary: #0a1118;
   --color-text-primary: #ffffff;
   --color-text-secondary: #9ca3af;
   --color-neon: #3b82f6;
   --color-neon-hover: #60a5fa;
+  --font-family-base: 'Poppins', sans-serif;
 }
 
 body {
   @apply min-h-screen;
+  font-family: var(--font-family-base);
   background-color: var(--color-bg-main);
 }
 
@@ -22,6 +25,7 @@ body {
 
 .heading-primary {
   @apply text-4xl font-bold;
+  font-family: var(--font-family-base);
   color: var(--color-text-primary);
 }
 
@@ -114,15 +118,23 @@ body {
 }
 
 .infinite-scroll-container {
-  animation: infiniteScroll 30s linear infinite;
+  animation: infiniteScroll 60s linear infinite;
+  display: flex;
+  gap: 1rem;
 }
 
 @keyframes infiniteScroll {
-  from {
+  0% {
     transform: translateX(0);
   }
-  to {
+  50% {
     transform: translateX(-50%);
+  }
+  50.01% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
   }
 }
 
@@ -138,4 +150,35 @@ body {
 
 .hide-scrollbar::-webkit-scrollbar {
   display: none;             /* Chrome, Safari and Opera */
+}
+
+/* Definicja scrollbara dla WebKit (Chrome, Safari, Opera) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #04070a;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.5); /* blue-500 z opacity */
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(59, 130, 246); /* blue-500 */
+}
+
+/* Definicja scrollbara dla Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(59, 130, 246, 0.5) #04070a;
+}
+
+html {
+  scroll-behavior: smooth;
 }

@@ -1,24 +1,40 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { HashRouter as Router, Routes, Route } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Home from './pages/Home'
 import Projects from './pages/Projects'
 import Technologies from './pages/Technologies'
+import About from './pages/About'
+import Contact from './pages/Contact'
+import './assets/styles.css'
 
-function App() {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/technologies" element={<Technologies />} />
-      </Routes>
-    </Router>
-  )
-}
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Home />,
+  },
+  {
+    path: '/projects',
+    element: <Projects />,
+  },
+  {
+    path: '/technologies',
+    element: <Technologies />,
+  },
+  {
+    path: '/about',
+    element: <About />,
+  },
+  {
+    path: '/contact',
+    element: <Contact />,
+  }
+], {
+  basename: '/portfolio'
+})
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <RouterProvider router={router} />
+  </React.StrictMode>,
 ) 

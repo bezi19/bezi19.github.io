@@ -24,7 +24,7 @@ export const technologies = [
   {
     name: 'Unity',
     logo: unityLogo,
-    description: 'Unity to silnik, który wykorzystuję do tworzenia gier 2D i 3D. Doceniam jego wszechstronność, rozbudowany Asset Store oraz możliwości szybkiego prototypowania.',
+    description: 'Unity to silnik, który wykorzystuję do tworzenia gier 2D. Doceniam jego wszechstronność, rozbudowany Asset Store oraz możliwości szybkiego prototypowania.',
     category: 'Game Development'
   },
   {
@@ -37,7 +37,7 @@ export const technologies = [
     name: 'GitHub',
     logo: githubLogo,
     category: 'Version Control',
-    description: 'Platforma hostingowa dla projektów wykorzystujących system kontroli wersji Git. Używana do przechowywania, zarządzania i współpracy nad kodem źródłowym.'
+    description: 'GitHub jest moim głównym narzędziem do pracy nad projektami informatycznymi. Nie ważne czy osobistych czy grupowych, jest to dla mnie narzędzie #1 do przechowywania kodu źródłowego.'
   },
   {
     name: 'React',
@@ -48,7 +48,7 @@ export const technologies = [
   {
     name: 'Expo',
     logo: expoLogo,
-    description: 'Expo wykorzystuję do szybkiego tworzenia aplikacji mobilnych w React Native. Platforma ta znacząco przyspiesza proces rozwoju i testowania aplikacji na różnych urządzeniach.',
+    description: 'Expo wykorzystuję do szybkiego tworzenia aplikacji mobilnych w React Native. Platforma ta znacząco przyspiesza proces rozwoju i testowania aplikacji na różnych urządzeniach. Pracowałem również korzystając z expo-bare-workflow podczas napotkania bibliotek, które nie wspierały kodu natywnego.',
     category: 'Mobile Development'
   },
   {

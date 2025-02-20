@@ -2,11 +2,11 @@ export const projects = {
   it: [
     {
       projectId: "trailmates",
-      title: "TrailMates (Praca Inżynierska)",
-      description: "Aplikacja zrzeszająca miłośników aktywności outdoorowych.",
+      title: "TrailMates",
+      description: "Aplikacja zrzeszająca miłośników aktywności outdoorowych. Była to moja praca inżynierska i odpowiadałem w niej za stworzenie prototypu aplikacji, oprawę graficzną oraz implementację funkcjonalności nagrywania tras w aplikacji mobilnej Android.",
       thumbnail: "/portfolio/projects/trailmates/thumbnail.png",
       imagesCount: 1,
-      link: "https://github.com/yourusername/portfolio",
+      link: "https://github.com/kaspher/TrailMates",
       isHavingLink: true,
       technologies: ["React Native", "Expo", "Tailwind CSS", "MapboxGL"]
     }
@@ -30,7 +30,6 @@ export const projects = {
       description: "Projekt naklejek dla znajomego, który jeździ na zloty samochodów BMW",
       thumbnail: "/portfolio/projects/4wheels1life/thumbnail.png",
       imagesCount: 2,
-      link: "https://behance.net/yourusername/album-cover",
       isHavingLink: false,
       technologies: ["Photoshop", "Illustrator"]
     }
