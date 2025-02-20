@@ -1,13 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import './styles.css'
-import avatar from './assets/avatar.png'
-import Navbar from './components/Navbar'
-import Projects from './pages/Projects'
-import Technologies from './pages/Technologies'
-import { technologies } from './data/technologies'
-import HireStatus from './components/HireStatus'
+import '../assets/styles.css'
+import avatar from '../assets/avatar.png'
+import Navbar from '../components/Navbar'
+import Projects from './Projects'
+import Technologies from './Technologies'
+import { technologies } from '../data/technologies'
+import HireStatus from '../components/HireStatus'
 
 function App() {
   return (
@@ -129,7 +129,7 @@ function App() {
 
 function AppWrapper() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/bezi19.github.io/">
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/projects" element={<Projects />} />
