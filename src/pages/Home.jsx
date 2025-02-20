@@ -129,7 +129,7 @@ function App() {
 
 function AppWrapper() {
   return (
-    <BrowserRouter basename="/bezi19.github.io/">
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/projects" element={<Projects />} />
