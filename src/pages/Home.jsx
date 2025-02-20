@@ -1,15 +1,11 @@
 import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import '../assets/styles.css'
 import avatar from '../assets/avatar.png'
 import Navbar from '../components/Navbar'
-import Projects from './Projects'
-import Technologies from './Technologies'
-import { technologies } from '../data/technologies'
 import HireStatus from '../components/HireStatus'
+import { technologies } from '../data/technologies'
 
-function App() {
+function Home() {
   return (
     <div className="relative min-h-screen overflow-y-auto">
       <Navbar />
@@ -17,18 +13,18 @@ function App() {
         <div className="flex flex-col gap-8 w-full px-4 md:w-3/4">
           <div className="flex flex-col md:flex-row gap-8">
             <div className="card-container w-full md:w-1/2">
-              <div className="flex gap-8 h-full">
-                <div className="flex items-center">
+              <div className="flex flex-col sm:flex-row gap-4 h-full">
+                <div className="flex justify-center sm:items-center flex-shrink-0">
                   <img 
                     src={avatar} 
                     alt="Profile avatar" 
-                    className="w-32 h-32 rounded-full"
+                    className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full"
                   />
                 </div>
 
-                <div className="flex flex-col flex-1">
+                <div className="flex flex-col flex-1 min-w-0">
                   <div className="pb-4 border-b border-blue-500/50">
-                    <h1 className="heading-primary text-2xl sm:text-4xl">
+                    <h1 className="heading-primary text-xl sm:text-2xl md:text-3xl lg:text-4xl break-words">
                       Wojciech Bezak
                     </h1>
                     <div className="mt-2">
@@ -36,15 +32,17 @@ function App() {
                     </div>
                   </div>
 
-                  <div className="flex flex-row gap-6 mt-4">
-                    <p className="flex items-center gap-2 text-gray">
-                      <i className="fas fa-envelope w-5"></i>
-                      <span className="break-all">wojciech.bezak19@gmail.com</span>
+                  <div className="flex flex-col lg:flex-row flex-wrap gap-3 mt-4">
+                    <p className="flex items-center gap-2 text-gray min-w-0 text-sm sm:text-base w-full lg:w-auto">
+                      <i className="fas fa-envelope w-5 flex-shrink-0"></i>
+                      <span className="truncate">wojciech.bezak19@gmail.com</span>
                     </p>
-                    <p className="flex items-center gap-2 text-gray">
-                      <i className="fas fa-phone w-5"></i>
-                      <span>+48 737 861 773</span>
-                    </p>
+                    <div className="flex flex-col sm:flex-row gap-3">
+                      <p className="flex items-center gap-2 text-gray text-sm sm:text-base">
+                        <i className="fas fa-phone w-5 flex-shrink-0"></i>
+                        <span>+48 737 861 773</span>
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -127,20 +125,4 @@ function App() {
   )
 }
 
-function AppWrapper() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/technologies" element={<Technologies />} />
-      </Routes>
-    </BrowserRouter>
-  )
-}
-
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <AppWrapper />
-  </React.StrictMode>
-) 
+export default Home 

@@ -12,6 +12,7 @@ import bootstrapLogo from '../assets/logos/bootstrap.svg';
 import affinityPhotoLogo from '../assets/logos/affinity-photo.svg';
 import adobeLogo from '../assets/logos/adobe.svg';
 import unityLogo from '../assets/logos/unity.svg';
+import githubLogo from '../assets/logos/github.svg';
 
 export const technologies = [
   {
@@ -21,16 +22,22 @@ export const technologies = [
     category: 'Game Development'
   },
   {
-    name: 'Affinity Designer',
-    logo: affinityLogo,
-    description: 'Używam Affinity Designer do projektowania interfejsów użytkownika, tworzenia grafik wektorowych oraz materiałów marketingowych. Doceniam jego wydajność i kompatybilność z formatami branżowymi.',
-    category: 'Design'
+    name: 'Unity',
+    logo: unityLogo,
+    description: 'Unity to silnik, który wykorzystuję do tworzenia gier 2D i 3D. Doceniam jego wszechstronność, rozbudowany Asset Store oraz możliwości szybkiego prototypowania.',
+    category: 'Game Development'
   },
   {
-    name: 'Figma',
-    logo: figmaLogo,
-    description: 'Figma jest moim głównym narzędziem do projektowania interfejsów użytkownika i prototypowania. Cenię ją za możliwość współpracy w czasie rzeczywistym i rozbudowany system komponentów.',
-    category: 'Design'
+    name: 'Blender',
+    logo: blenderLogo,
+    description: 'Blender służy mi do modelowania 3D, tworzenia animacji i renderowania. Szczególnie przydatny w przygotowywaniu assetów do gier i wizualizacji.',
+    category: '3D Graphics'
+  },
+  {
+    name: 'GitHub',
+    logo: githubLogo,
+    category: 'Version Control',
+    description: 'Platforma hostingowa dla projektów wykorzystujących system kontroli wersji Git. Używana do przechowywania, zarządzania i współpracy nad kodem źródłowym.'
   },
   {
     name: 'React',
@@ -45,10 +52,10 @@ export const technologies = [
     category: 'Mobile Development'
   },
   {
-    name: 'Blender',
-    logo: blenderLogo,
-    description: 'Blender służy mi do modelowania 3D, tworzenia animacji i renderowania. Szczególnie przydatny w przygotowywaniu assetów do gier i wizualizacji.',
-    category: '3D Graphics'
+    name: 'Figma',
+    logo: figmaLogo,
+    description: 'Figma jest moim głównym narzędziem do projektowania interfejsów użytkownika i prototypowania. Cenię ją za możliwość współpracy w czasie rzeczywistym i rozbudowany system komponentów.',
+    category: 'Design'
   },
   {
     name: 'HTML5',
@@ -63,15 +70,15 @@ export const technologies = [
     category: 'Web Development'
   },
   {
-    name: 'JavaScript',
-    logo: jsLogo,
-    description: 'JavaScript jest fundamentem moich projektów webowych. Wykorzystuję najnowsze standardy ES6+ do tworzenia interaktywnych aplikacji, skupiając się na wydajności i czystości kodu.',
-    category: 'Web Development'
-  },
-  {
     name: 'Tailwind CSS',
     logo: tailwindLogo,
     description: 'Tailwind CSS to mój preferowany framework CSS, który wykorzystuję do szybkiego tworzenia responsywnych interfejsów. Cenię go za elastyczność i możliwość tworzenia niestandardowych designów bez opuszczania HTML.',
+    category: 'Web Development'
+  },
+  {
+    name: 'JavaScript',
+    logo: jsLogo,
+    description: 'JavaScript jest fundamentem moich projektów webowych. Wykorzystuję najnowsze standardy ES6+ do tworzenia interaktywnych aplikacji, skupiając się na wydajności i czystości kodu.',
     category: 'Web Development'
   },
   {
@@ -79,6 +86,12 @@ export const technologies = [
     logo: bootstrapLogo,
     description: 'Bootstrap wykorzystuję do szybkiego prototypowania i tworzenia responsywnych stron internetowych. Jego bogata biblioteka komponentów pozwala na szybkie wdrażanie projektów.',
     category: 'Web Development'
+  },
+  {
+    name: 'Affinity Designer',
+    logo: affinityLogo,
+    description: 'Używam Affinity Designer do projektowania interfejsów użytkownika, tworzenia grafik wektorowych oraz materiałów marketingowych. Doceniam jego wydajność i kompatybilność z formatami branżowymi.',
+    category: 'Design'
   },
   {
     name: 'Affinity Photo',
@@ -91,11 +104,5 @@ export const technologies = [
     logo: adobeLogo,
     description: 'W pakiecie Adobe głównie korzystam z Photoshopa do zaawansowanej edycji zdjęć oraz Illustratora do tworzenia grafiki wektorowej. Te narzędzia są niezbędne w mojej pracy przy projektach graficznych.',
     category: 'Design'
-  },
-  {
-    name: 'Unity',
-    logo: unityLogo,
-    description: 'Unity to silnik, który wykorzystuję do tworzenia gier 2D i 3D. Doceniam jego wszechstronność, rozbudowany Asset Store oraz możliwości szybkiego prototypowania.',
-    category: 'Game Development'
   }
 ]; 
