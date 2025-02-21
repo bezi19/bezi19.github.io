@@ -21,9 +21,19 @@ function ProjectModal({ project, onClose }) {
     setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
   };
 
+  // Zamykanie modalu przy kliknięciu w tło
+  const handleBackdropClick = (e) => {
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
+  };
+
   return (
-    <div className="fixed inset-0 bg-black/80 flex items-center justify-center p-4 z-50">
-      <div className="bg-[#0a0f18] rounded-lg w-[95%] max-w-7xl max-h-[90vh] overflow-y-auto overflow-x-hidden">
+    <div 
+      className="fixed inset-0 bg-black/80 flex items-center justify-center p-4 z-50"
+      onClick={handleBackdropClick}
+    >
+      <div className="bg-[#0a0f18] rounded-lg w-[95%] max-w-7xl max-h-[90vh] overflow-y-auto">
         <div className="p-8">
           <div className="flex justify-between items-start mb-6">
             <div className="w-full pr-8">
@@ -38,39 +48,31 @@ function ProjectModal({ project, onClose }) {
             </button>
           </div>
 
-          <div className="relative my-8 aspect-video">
-            <div className="absolute inset-0 flex items-center justify-center">
+          <div className="relative my-8">
+            <div className="relative bg-black/20 rounded-lg flex items-center justify-center min-h-[200px] md:min-h-[400px]">
               <img 
                 src={images[currentImageIndex]}
                 alt={`${project.title} image ${currentImageIndex + 1}`}
-                className="max-h-full max-w-full object-contain"
+                className="max-w-full max-h-[60vh] object-contain rounded-lg"
               />
             </div>
-
-            <button 
-              onClick={prevImage}
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-blue-500/50 text-white p-3 rounded-full transition-colors cursor-pointer"
-            >
-              <i className="fas fa-chevron-left text-xl"></i>
-            </button>
-            <button 
-              onClick={nextImage}
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-blue-500/50 text-white p-3 rounded-full transition-colors cursor-pointer"
-            >
-              <i className="fas fa-chevron-right text-xl"></i>
-            </button>
-
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-              {images.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentImageIndex(index)}
-                  className={`w-2 h-2 rounded-full transition-colors ${
-                    index === currentImageIndex ? 'bg-blue-500' : 'bg-gray-500'
-                  }`}
-                />
-              ))}
-            </div>
+            
+            {project.imagesCount > 0 && (
+              <>
+                <button 
+                  onClick={prevImage}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/50 hover:bg-blue-500/50 text-white transition-colors cursor-pointer flex items-center justify-center"
+                >
+                  <i className="fas fa-chevron-left text-xl"></i>
+                </button>
+                <button 
+                  onClick={nextImage}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/50 hover:bg-blue-500/50 text-white transition-colors cursor-pointer flex items-center justify-center"
+                >
+                  <i className="fas fa-chevron-right text-xl"></i>
+                </button>
+              </>
+            )}
           </div>
 
           <div className="flex flex-wrap items-center justify-between gap-4">
@@ -78,7 +80,7 @@ function ProjectModal({ project, onClose }) {
               {project.technologies.map((tech, index) => (
                 <span 
                   key={index}
-                  className="px-4 py-2 bg-blue-500/20 text-blue-400 rounded-full text-sm font-poppins font-light"
+                  className="px-4 py-2 bg-blue-500/20 text-blue-400 rounded-full text-sm"
                 >
                   {tech}
                 </span>
@@ -105,7 +107,9 @@ function ProjectModal({ project, onClose }) {
 function ProjectCard({ project, onClick }) {
   return (
     <div 
-      className="bg-black/40 rounded-lg overflow-hidden group cursor-pointer"
+      className="bg-black/40 rounded-lg overflow-hidden group cursor-pointer transition-all duration-300
+        border border-[var(--color-neon)] shadow-[0_0_15px_rgba(59,130,246,0.3)]
+        hover:shadow-[0_0_30px_rgba(59,130,246,0.5)] hover:border-opacity-70"
       onClick={() => onClick(project)}
     >
       <div className="aspect-video relative">
@@ -115,14 +119,18 @@ function ProjectCard({ project, onClick }) {
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-          <button className="px-6 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors cursor-pointer">
+          <button className="px-6 py-2 bg-[var(--color-neon)] text-white rounded hover:bg-[var(--color-neon-hover)] transition-colors cursor-pointer">
             Zobacz więcej
           </button>
         </div>
       </div>
       <div className="p-6">
-        <h3 className="text-xl font-semibold text-white mb-2 font-poppins">{project.title}</h3>
-        <p className="text-gray line-clamp-2 font-poppins font-normal">{project.description}</p>
+        <h3 className="text-xl font-semibold text-white mb-2 font-poppins group-hover:text-[var(--color-neon)] transition-colors">
+          {project.title}
+        </h3>
+        <p className="text-gray line-clamp-2 font-poppins font-normal">
+          {project.description}
+        </p>
       </div>
     </div>
   );

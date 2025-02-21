@@ -5,8 +5,15 @@ import Navbar from '../components/Navbar'
 import HireStatus from '../components/HireStatus'
 import { technologies } from '../data/technologies'
 import SideNavbar from '../components/SideNavbar'
+import { projects } from '../data/projects'
+import { Link } from 'react-router-dom'
 
 function Home() {
+  // Obliczamy całkowitą liczbę projektów
+  const totalProjects = Object.values(projects).reduce((sum, category) => 
+    sum + category.length, 0
+  );
+
   return (
     <div className="relative min-h-screen overflow-y-auto">
       <Navbar />
@@ -134,12 +141,61 @@ function Home() {
       </section>
 
       {/* Druga sekcja */}
-      <section id="dos" className="min-h-screen bg-[var(--color-bg-secondary)] flex items-center justify-center">
-        <div className="text-center">
-          <h2 className="text-6xl font-bold text-white font-poppins mb-4">
-            Sekcja numero dos
-          </h2>
-          <div className="h-1 w-24 bg-blue-500 rounded mx-auto"></div>
+      <section id="projectSection" className="min-h-screen bg-[var(--color-bg-secondary)] flex items-center justify-center">
+        <div className="px-4 w-full">
+          <div className="flex justify-center items-center">
+            <div className="card-container w-full md:w-1/2 flex items-center justify-center">
+              <div className="text-center">
+                <div className="mb-4">
+                  <span className="text-7xl sm:text-8xl font-bold text-blue-500 font-poppins">
+                    {totalProjects}
+                  </span>
+                </div>
+                <h2 className="text-3xl sm:text-4xl font-bold text-white font-poppins mb-4">
+                  Ukończonych Projektów
+                </h2>
+                <div className="h-1 w-24 bg-blue-500 rounded mx-auto mb-6"></div>
+
+                {/* Statystyki kategorii */}
+                <div className="flex flex-col sm:flex-row justify-between w-full mb-6">
+                  <div className="flex flex-col items-center flex-1">
+                    <span className="text-2xl font-bold text-white font-poppins">
+                      {projects.it.length}
+                    </span>
+                    <p className="text-gray text-sm font-poppins text-center">
+                      Projekty IT
+                    </p>
+                  </div>
+                  <div className="flex flex-col items-center flex-1">
+                    <span className="text-2xl font-bold text-white font-poppins">
+                      {projects.smallIt.length}
+                    </span>
+                    <p className="text-gray text-sm font-poppins text-center">
+                      Mniejsze<br className="hidden sm:block" /> Projekty IT
+                    </p>
+                  </div>
+                  <div className="flex flex-col items-center flex-1">
+                    <span className="text-2xl font-bold text-white font-poppins">
+                      {projects.graphic.length}
+                    </span>
+                    <p className="text-gray text-sm font-poppins text-center">
+                      Projekty Graficzne
+                    </p>
+                  </div>
+                </div>
+
+                <div className="h-[1px] w-16 bg-blue-500/50 rounded mx-auto mb-6"></div>
+
+                <Link 
+                  to="/projects"
+                  className="inline-flex items-center gap-2 text-blue-500 hover:text-blue-400 transition-colors font-poppins"
+                >
+                  <span>Zobacz wszystkie projekty</span>
+                  <i className="fas fa-arrow-right"></i>
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
       <section id="tres" className="min-h-screen bg-[#04070a] flex items-center justify-center">

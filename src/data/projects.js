@@ -5,7 +5,7 @@ export const projects = {
       title: "TrailMates",
       description: "Aplikacja zrzeszająca miłośników aktywności outdoorowych. Była to moja praca inżynierska i odpowiadałem w niej za stworzenie prototypu aplikacji, oprawę graficzną oraz implementację funkcjonalności nagrywania tras w aplikacji mobilnej Android.",
       thumbnail: "/portfolio/projects/trailmates/thumbnail.png",
-      imagesCount: 1,
+      imagesCount: 7,
       link: "https://github.com/kaspher/TrailMates",
       isHavingLink: true,
       technologies: ["React Native", "Expo", "Tailwind CSS", "MapboxGL"]
@@ -32,6 +32,42 @@ export const projects = {
       imagesCount: 2,
       isHavingLink: false,
       technologies: ["Photoshop", "Illustrator"]
+    },
+    {
+      projectId: "redTwitchOverlay",
+      title: "Nakładki na transmisje twitch.tv/prodbybezi",
+      description: "Projekt nakładek do transmisji na żywo na platformie twitch.tv.",
+      thumbnail: "/portfolio/projects/redTwitchOverlay/thumbnail.png",
+      imagesCount: 4,
+      isHavingLink: false,
+      technologies: ["Photoshop"]
+    },
+    {
+      projectId: "racoonEmotes",
+      title: "Emotki dla GibberishRacoon",
+      description: "Kilka podstawowych emotek dla streamera GibberishRacoon używanych podczas transmisji na żywo na platformie twitch.tv.",
+      thumbnail: "/portfolio/projects/racoonEmotes/thumbnail.png",
+      imagesCount: 4,
+      isHavingLink: false,
+      technologies: ["Affinity Designer", "Affinity Photo"]
+    },
+    {
+      projectId: "schoolBanner",
+      title: "Baner reklamujący szkołę",
+      description: "Zwycięzca konkursu na najlepszy baner reklamujący Liceum Ogólnokształcące imienia W. Broniewskiego w Świdwinie",
+      thumbnail: "/portfolio/projects/schoolBanner/thumbnail.png",
+      imagesCount: 0,
+      isHavingLink: false,
+      technologies: ["Photoshop"]
+    },
+    {
+      projectId: "lxTargetsShirts",
+      title: "Merch dla strzelnicy LX Targets",
+      description: "Projekt trzech koszulek dla Świdwińskiej strzelnicy LX Targets. Mockup stworzony za pomocą MockupMark.",
+      thumbnail: "/portfolio/projects/lxTargetsShirts/thumbnail.png",
+      imagesCount: 5,
+      isHavingLink: false,
+      technologies: ["Photoshop"]
     }
   ]
 } 

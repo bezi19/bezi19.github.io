@@ -5,7 +5,7 @@ function SideNavbar() {
 
   const sections = [
     { id: 'about', title: 'O mnie' },
-    { id: 'dos', title: 'sekcja dos' },
+    { id: 'projectSection', title: 'Ukończone projekty' },
     { id: 'tres', title: 'sekcja tres' }
   ];
 
@@ -39,10 +39,10 @@ function SideNavbar() {
         {sections.map(section => (
           <div 
             key={section.id}
-            className="flex items-center gap-4 group cursor-pointer"
+            className="flex items-center justify-end w-[200px] group cursor-pointer"
             onClick={() => scrollToSection(section.id)}
           >
-            <span className={`text-sm font-medium transition-all duration-300 min-w-[100px] text-right ${
+            <span className={`text-sm font-medium transition-all duration-300 text-right ${
               activeSection === section.id 
                 ? 'text-blue-500 opacity-100' 
                 : 'text-gray-400 opacity-0 group-hover:opacity-100'
@@ -50,7 +50,7 @@ function SideNavbar() {
               {section.title}
             </span>
             <div 
-              className={`w-4 h-4 rounded-full transition-all duration-300 ${
+              className={`ml-2 w-4 h-4 rounded-full transition-all duration-300 flex-shrink-0 ${
                 activeSection === section.id 
                   ? 'w-8 bg-blue-500' 
                   : 'bg-gray-500 group-hover:bg-blue-400'
