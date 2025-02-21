@@ -9,7 +9,6 @@ import { projects } from '../data/projects'
 import { Link } from 'react-router-dom'
 
 function Home() {
-  // Obliczamy całkowitą liczbę projektów
   const totalProjects = Object.values(projects).reduce((sum, category) => 
     sum + category.length, 0
   );
@@ -25,17 +24,17 @@ function Home() {
           <div className="flex flex-col gap-8 w-full px-4 md:w-3/4">
             <div className="flex flex-col md:flex-row gap-8">
               <div className="card-container w-full md:w-1/2">
-                <div className="flex flex-col sm:flex-row gap-4 h-full">
-                  <div className="flex justify-center sm:items-center flex-shrink-0">
+                <div className="flex flex-col sm:flex-row gap-6 h-full">
+                  <div className="flex justify-center sm:items-center flex-shrink-0 sm:w-1/4">
                     <img 
                       src={avatar} 
                       alt="Profile avatar" 
-                      className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full"
+                      className="w-32 h-32 sm:w-40 sm:h-40 rounded-full"
                     />
                   </div>
 
-                  <div className="flex flex-col flex-1 min-w-0">
-                    <div className="pb-4 border-b border-blue-500/50">
+                  <div className="flex flex-col flex-1 min-w-0 sm:w-3/4">
+                    <div className="pb-4">
                       <h1 className="heading-primary text-xl sm:text-2xl md:text-3xl lg:text-4xl break-words font-poppins font-bold">
                         Wojciech Bezak
                       </h1>
@@ -43,6 +42,7 @@ function Home() {
                         <HireStatus status="AVAILABLE" />
                       </div>
                     </div>
+                    <div className="divider mb-4"></div>
 
                     <div className="flex flex-col lg:flex-row flex-wrap gap-3 mt-4">
                       <p className="flex items-center gap-2 text-gray min-w-0 text-sm sm:text-base w-full lg:w-auto font-poppins font-normal">
@@ -54,6 +54,36 @@ function Home() {
                           <i className="fas fa-phone w-5 flex-shrink-0"></i>
                           <span>+48 737 861 773</span>
                         </p>
+                      </div>
+                    </div>
+
+                    <div className="mt-4">
+                      <div className="divider mb-4"></div>
+                      <div className="flex gap-4">
+                        <a 
+                          href="https://www.linkedin.com/in/wojciech-bezak/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-gray hover:text-blue-500 transition-colors"
+                        >
+                          <i className="fab fa-linkedin text-2xl"></i>
+                        </a>
+                        <a 
+                          href="https://www.instagram.com/prodbybezi/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-gray hover:text-blue-500 transition-colors"
+                        >
+                          <i className="fab fa-instagram text-2xl"></i>
+                        </a>
+                        <a 
+                          href="https://github.com/bezi19"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-gray hover:text-blue-500 transition-colors"
+                        >
+                          <i className="fab fa-github text-2xl"></i>
+                        </a>
                       </div>
                     </div>
                   </div>

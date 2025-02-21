@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Navbar from '../components/Navbar';
 import { projects } from '../data/projects';
 
 function ProjectModal({ project, onClose }) {
   if (!project) return null;
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
+  const sliderRef = useRef(null);
   
   const images = [
     project.thumbnail,
@@ -12,6 +15,32 @@ function ProjectModal({ project, onClose }) {
       `/portfolio/projects/${project.projectId}/images/image${index + 1}.png`
     )
   ];
+
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.touches[0].clientX);
+  };
+
+  const onTouchMove = (e) => {
+    setTouchEnd(e.touches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      nextImage();
+    }
+    if (isRightSwipe) {
+      prevImage();
+    }
+  };
 
   const nextImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % images.length);
@@ -21,7 +50,6 @@ function ProjectModal({ project, onClose }) {
     setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
   };
 
-  // Zamykanie modalu przy kliknięciu w tło
   const handleBackdropClick = (e) => {
     if (e.target === e.currentTarget) {
       onClose();
@@ -33,11 +61,16 @@ function ProjectModal({ project, onClose }) {
       className="fixed inset-0 bg-black/80 flex items-center justify-center p-4 z-50"
       onClick={handleBackdropClick}
     >
-      <div className="bg-[#0a0f18] rounded-lg w-[95%] max-w-7xl max-h-[90vh] overflow-y-auto">
+      <div className="bg-[#0a0f18] rounded-lg w-[95%] max-w-7xl max-h-[90vh] overflow-y-auto
+        border border-[var(--color-neon)] shadow-[0_0_15px_rgba(59,130,246,0.3)]
+        hover:shadow-[0_0_30px_rgba(59,130,246,0.5)] hover:border-opacity-70
+        transition-all duration-300"
+      >
         <div className="p-8">
           <div className="flex justify-between items-start mb-6">
             <div className="w-full pr-8">
               <h2 className="text-3xl font-bold text-white mb-4 font-poppins">{project.title}</h2>
+              <div className="h-1 w-24 bg-blue-500 rounded mb-4"></div>
               <p className="text-gray text-lg font-poppins font-normal">{project.description}</p>
             </div>
             <button 
@@ -49,11 +82,18 @@ function ProjectModal({ project, onClose }) {
           </div>
 
           <div className="relative my-8">
-            <div className="relative bg-black/20 rounded-lg flex items-center justify-center min-h-[200px] md:min-h-[400px]">
+            <div 
+              ref={sliderRef}
+              className="relative bg-black/20 rounded-lg flex items-center justify-center min-h-[200px] md:min-h-[400px]"
+              onTouchStart={onTouchStart}
+              onTouchMove={onTouchMove}
+              onTouchEnd={onTouchEnd}
+            >
               <img 
                 src={images[currentImageIndex]}
                 alt={`${project.title} image ${currentImageIndex + 1}`}
                 className="max-w-full max-h-[60vh] object-contain rounded-lg"
+                draggable="false"
               />
             </div>
             
@@ -71,6 +111,22 @@ function ProjectModal({ project, onClose }) {
                 >
                   <i className="fas fa-chevron-right text-xl"></i>
                 </button>
+
+                {/* Kropki nawigacyjne */}
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                  {images.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentImageIndex(index)}
+                      className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                        index === currentImageIndex 
+                          ? 'bg-blue-500 w-4' 
+                          : 'bg-gray-500 hover:bg-blue-400'
+                      }`}
+                      aria-label={`Przejdź do zdjęcia ${index + 1}`}
+                    />
+                  ))}
+                </div>
               </>
             )}
           </div>
@@ -119,9 +175,10 @@ function ProjectCard({ project, onClick }) {
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-          <button className="px-6 py-2 bg-[var(--color-neon)] text-white rounded hover:bg-[var(--color-neon-hover)] transition-colors cursor-pointer">
-            Zobacz więcej
-          </button>
+          <span className="text-[var(--color-neon)] text-lg font-medium font-poppins
+            group-hover:text-shadow-neon transition-all duration-300">
+            Zobacz projekt
+          </span>
         </div>
       </div>
       <div className="p-6">
